@@ -73,6 +73,10 @@
     color: #fff;
     text-shadow: 2px 2px 8px #000;
   }
+  p {
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+  }
   button {
     background-color: #55346e;
     border: none;
@@ -128,7 +132,7 @@
   #btns2 {
     display: none;
   }
-  #gen-p::before {
+  #gen-p1::before {
     content: "Castle 1: ";
   }
   #gen-p2::before {
@@ -220,7 +224,16 @@
       "scissors"
     ];
     var randomNumber = Math.floor(Math.random() * textArray.length);
-    document.getElementById("gen-p1").innerHTML = randomNumber;
+    if (randomNumber == 0){
+      randomString = "rock";
+    }
+    if (randomNumber == 1){
+      randomString = "paper";
+    }
+    if (randomNumber == 2){
+      randomString = "scissors";
+    }
+    document.getElementById("gen-p1").innerHTML = randomString;
     
     
     var textArray2 = [
@@ -229,7 +242,16 @@
       "scissors"
     ];
     var randomNumber2 = Math.floor(Math.random() * textArray.length);
-    document.getElementById("gen-p2").innerHTML = randomNumber2;
+    if (randomNumber2 == 0){
+      randomString2 = "rock";
+    }
+    if (randomNumber2 == 1){
+      randomString2 = "paper";
+    }
+    if (randomNumber2 == 2){
+      randomString2 = "scissors";
+    }
+    document.getElementById("gen-p2").innerHTML = randomString2;
     
     if (randomNumber == randomNumber2){
       document.getElementById("gen-p3").innerHTML = "TIED";
