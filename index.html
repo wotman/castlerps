@@ -19,7 +19,7 @@
       <br>
       <br>
       <button id="cannon2-btn2" onclick="shootCannon2();">SHOOT CANNON</button>
-      <button id="cannon2-btn">SHOOT</button>
+      <button id="cannon2-btn" onclick="shoot2();">SHOOT</button>
       <h3 id="cannon2"></h3>
       <br>
       <h3 id="shield2"></h3>
@@ -90,8 +90,18 @@
     }
     else {
       hp2 = hp2 - 1;
-      console.log(hp2)
+      console.log(hp2);
       document.getElementById("hp2").innerHTML = String(hp2);
+    }
+  }
+  function shoot2(){
+    if (document.getElementById("shield").innerHTML == "SHIELD"){
+      document.getElementById("shield").innerHTML = "";
+    }
+    else {
+      hp1 = hp1 - 1;
+      console.log(hp1);
+      document.getElementById("hp1").innerHTML = String(hp1);
     }
   }
   function shootCannon1(){
