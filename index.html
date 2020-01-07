@@ -29,6 +29,9 @@
   </body>
 </html>
 <style>
+  /* body {
+    background-image: url("https://wotman.github.io/bg.jpg");
+  } */
   #cannon1-btn {
     display: none;
   }
@@ -89,6 +92,9 @@
   function shoot1(){
     if (document.getElementById("shield2").innerHTML == "SHIELD"){
       document.getElementById("shield2").innerHTML = "";
+      if (document.getElementById("cannon2").innerHTML == "CANNON"){
+        document.getElementById("cannon1-btn2").style.display = "block";
+      }
     }
     else {
       hp2 = hp2 - 1;
@@ -103,6 +109,9 @@
   function shoot2(){
     if (document.getElementById("shield1").innerHTML == "SHIELD"){
       document.getElementById("shield1").innerHTML = "";
+      if (document.getElementById("cannon1").innerHTML == "CANNON"){
+        document.getElementById("cannon2-btn2").style.display = "block";
+      }
     }
     else {
       hp1 = hp1 - 1;
