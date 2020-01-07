@@ -3,7 +3,7 @@
     <title>Castle RPS</title>
   </head>
   <body>
-    <center id="main">
+    <center>
       <div id="btns">
         <button onclick="addCannon1();">Add cannon castle 1</button>
         <br>
@@ -16,25 +16,27 @@
         <br>
         <button onclick="addShield2();">Add shield castle 2</button>
       </div>
-      <h1>CASTLE 1 <span id="hp1">4</span></h1>
-      <br>
-      <h3 id="cannon1"></h3>
-      <button id="cannon1-btn" onclick="shoot1();">SHOOT</button>
-      <br>
-      <button id="cannon1-btn2" onclick="shootCannon1();">SHOOT CANNON</button>
-      <br>
-      <h3 id="shield1"></h3>
-      <br>
-      <hr>
-      <br>
-      <h3 id="shield2"></h3>
-      <br>
-      <button id="cannon2-btn2" onclick="shootCannon2();">SHOOT CANNON</button>
-      <br>
-      <button id="cannon2-btn" onclick="shoot2();">SHOOT</button>
-      <h3 id="cannon2"></h3>
-      <br>
-      <h1>CASTLE 2 <span id="hp2">4</span></h1>
+      <div id="main">
+        <h1>CASTLE 1 <span id="hp1">4</span></h1>
+        <br>
+        <h3 id="cannon1"></h3>
+        <button id="cannon1-btn" onclick="shoot1();">SHOOT</button>
+        <br>
+        <button id="cannon1-btn2" onclick="shootCannon1();">SHOOT CANNON</button>
+        <br>
+        <h3 id="shield1"></h3>
+        <br>
+        <hr>
+        <br>
+        <h3 id="shield2"></h3>
+        <br>
+        <button id="cannon2-btn2" onclick="shootCannon2();">SHOOT CANNON</button>
+        <br>
+        <button id="cannon2-btn" onclick="shoot2();">SHOOT</button>
+        <h3 id="cannon2"></h3>
+        <br>
+        <h1>CASTLE 2 <span id="hp2">4</span></h1>
+      </div>
     </center>
   </body>
 </html>
@@ -106,6 +108,9 @@
   #btns {
     float: left;
     position: fixed;
+    transform: translateY(50%);
+  }
+  #main {
     transform: translateY(50%);
   }
 </style>
