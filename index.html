@@ -4,17 +4,26 @@
   </head>
   <body>
     <center>
-      <div id="btns1">
-        <button onclick="addCannon1();">Add cannon castle 1</button>
-        <br>
-        <br>
-        <button onclick="addShield1();">Add shield castle 1</button>
-        <br>
-        <br>
-        <button onclick="addCannon2();">Add cannon castle 2</button>
-        <br>
-        <br>
-        <button onclick="addShield2();">Add shield castle 2</button>
+      <button id="gen-btn">Generate RPS</button>
+      <br>
+      <p id="gen-p1">-</p>
+      <p id="gen-p2">-</p>
+      <p id="gen-p3"></p>
+      <div id="team1">
+        <div id="btns1">
+          <button onclick="addCannon1();">Add cannon castle 1</button>
+          <br>
+          <br>
+          <button onclick="addShield1();">Add shield castle 1</button>
+        </div>
+      </div>
+      <div id="team2">
+        <div id="btns2">
+            <button onclick="addCannon2();">Add cannon castle 2</button>
+            <br>
+            <br>
+            <button onclick="addShield2();">Add shield castle 2</button>
+          </button>
       </div>
       <h1>CASTLE 1 <span id="hp1">4</span></h1>
       <br>
@@ -103,11 +112,27 @@
   #hp2::after {
     content: ")";
   }
-  #btns1 {
+  #team1 {
     float: left;
     position: fixed;
     transform: translateY(50%);
+  }
+  #team2 {
+    float: right;
+    position: fixed;
+    transform: translateY(50%);
+  }
+  #btns1 {
     display: none;
+  }
+  #btns2 {
+    display: none;
+  }
+  #gen-p::before {
+    content: "Castle 1: ";
+  }
+  #gen-p2::before {
+    content: "Castle 2: ";
   }
 </style>
 <script>
@@ -187,5 +212,35 @@
     document.getElementById("cannon1-btn").style.display = "none";
     document.getElementById("cannon1-btn2").style.display = "none";
     document.getElementById("cannon2-btn2").style.display = "none";
+  }
+  function genrps(){
+    var textArray = [
+      "rock",
+      "paper",
+      "scissors"
+    ];
+    var randomNumber = Math.floor(Math.random() * textArray.length);
+    document.getElementById("gen-p1").innerHTML = randomNumber;
+    
+    
+    var textArray2 = [
+      "rock",
+      "paper",
+      "scissors"
+    ];
+    var randomNumber2 = Math.floor(Math.random() * textArray.length);
+    document.getElementById("gen-p2").innerHTML = randomNumber2;
+    
+    if (randomNumber == randomNumber2){
+      document.getElementById("gen-p3").innerHTML = "TIED";
+    }
+    if (randomNumber == 0 && randomNumber2 == 2 || randomNumber == 1 && randomNumber2 == 0 || randomNumber == 2 && randomNumber2 == 1){
+      document.getElementById("gen-p3").innerHTML = "CASTLE 1 WINS";
+      document.getElementById("btns-1").style.display = "block";
+    }
+    if (randomNumber == 0 && randomNumber2 == 1 || randomNumber == 1 && randomNumber2 == 2 || randomNumber == 2 && randomNumber2 == 0){
+      document.getElementById("gen-p3").innerHTML = "CASTLE 2 WINS";
+      document.getElementById("btns-2").style.display = "block";
+    }
   }
 </script>
