@@ -14,9 +14,11 @@
       <br>
       <h3 id="cannon1"></h3>
       <button id="cannon1-btn" onclick="shoot1();">SHOOT</button>
+      <button id="cannon1-btn2">SHOOT CANNON</button>
       <br>
       <br>
       <br>
+      <button id="cannon2-btn2">SHOOT CANNON</button>
       <button id="cannon2-btn">SHOOT</button>
       <h3 id="cannon2"></h3>
       <br>
@@ -31,6 +33,12 @@
     display: none;
   }
   #cannon2-btn {
+    display: none;
+  }
+  #cannon1-btn2 {
+    display: none;
+  }
+  #cannon2-btn2 {
     display: none;
   }
   #hp1::before {
@@ -55,10 +63,18 @@
   function addCannon1(){
     document.getElementById("cannon1").innerHTML = "CANNON";
     document.getElementById("cannon1-btn").style.display = "block";
+    
+    if (document.getElementById("cannon1").innerHTML == "CANNON") {
+      document.getElementById("cannon2-btn2").style.display = "block";
+    }
   }
   function addCannon2(){
     document.getElementById("cannon2").innerHTML = "CANNON";
     document.getElementById("cannon2-btn").style.display = "block";
+    
+    if (document.getElementById("cannon2").innerHTML == "CANNON") {
+      document.getElementById("cannon1-btn2").style.display = "block";
+    }
   }
   function addShield1(){
     document.getElementById("shield1").innerHTML = "SHIELD";
