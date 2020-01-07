@@ -37,6 +37,10 @@
 <script>
   hp1 = document.getElementById("hp1");
   hp2 = document.getElementById("hp2");
+  hp1 = parseInt(hp1,10);
+  hp2 = parseInt(hp2,10);
+  console.log(hp1);
+  console.log(hp2);
   
   function addCannon1(){
     document.getElementById("cannon1").innerHTML = "CANNON";
@@ -51,5 +55,13 @@
   }
   function addShield2(){
     document.getElementById("shield2").innerHTML = "SHIELD";
+  }
+  function shoot1(){
+    if (document.getElementById("shield2") == "SHIELD"){
+      document.getElementById("shield2").innerHTML = "";
+    }
+    else {
+      
+    }
   }
 </script>
