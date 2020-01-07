@@ -10,11 +10,33 @@
     <center id="main">
       <h1>CASTLE 1 <span id="hp">(4)</span></h1>
       <br>
+      <h3 id="cannon1"></h3>
+      <button id="cannon1-btn">SHOOT</button>
       <br>
       <br>
       <br>
+      <button id="cannon2-btn">SHOOT</button>
+      <h3 id="cannon2"></h3>
       <br>
       <h1>CASTLE 2 <span id="hp">(4)</span></h1>
     </center>
   </body>
 </html>
+<style>
+  #cannon1-btn {
+    display: none;
+  }
+  #cannon2-btn {
+    display: none;
+  }
+</style>
+<script>
+  function addCannon1(){
+    document.getElementById("cannon1").innerHTML = "CANNON";
+    document.getElementById("cannon1-btn").style.display = "block";
+  }
+  function addCannon2(){
+    document.getElementById("cannon2").innerHTML = "CANNON";
+    document.getElementById("cannon2-btn").style.display = "block";
+  }
+</script>
