@@ -8,7 +8,7 @@
     <button onclick="addShield1();">Add shield castle 1</button>
     <button onclick="addShield2();">Add shield castle 2</button>
     <center id="main">
-      <h1>CASTLE 1 <span id="hp1">(4)</span></h1>
+      <h1>CASTLE 1 <span id="hp1">4</span></h1>
       <br>
       <h3 id="shield1"></h3>
       <br>
@@ -22,7 +22,7 @@
       <br>
       <h3 id="shield2"></h3>
       <br>
-      <h1>CASTLE 2 <span id="hp2">(4)</span></h1>
+      <h1>CASTLE 2 <span id="hp2">4</span></h1>
     </center>
   </body>
 </html>
@@ -33,12 +33,24 @@
   #cannon2-btn {
     display: none;
   }
+  #hp1::before {
+    content: "(";
+  }
+  #hp1::after {
+    content: ")";
+  }
+  #hp2::before {
+    content: "(";
+  }
+  #hp2::after {
+    content: ")";
+  }
 </style>
 <script>
   hp1 = document.getElementById("hp1");
   hp2 = document.getElementById("hp2");
-  hp1 = parseInt(hp1,10);
-  hp2 = parseInt(hp2,10);
+  hp1 = parseInt(hp1);
+  hp2 = parseInt(hp2);
   console.log(hp1);
   console.log(hp2);
   
