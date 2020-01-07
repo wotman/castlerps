@@ -93,6 +93,10 @@
       console.log(hp2);
       document.getElementById("hp2").innerHTML = String(hp2);
     }
+    if (hp2 == 0){
+      alert("Castle 1 won!");
+      location.reload();
+    }
   }
   function shoot2(){
     if (document.getElementById("shield1").innerHTML == "SHIELD"){
@@ -102,6 +106,10 @@
       hp1 = hp1 - 1;
       console.log(hp1);
       document.getElementById("hp1").innerHTML = String(hp1);
+    }
+    if (hp1 == 0){
+      alert("Castle 2 won!");
+      location.reload();
     }
   }
   function shootCannon1(){
