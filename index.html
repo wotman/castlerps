@@ -8,7 +8,9 @@
     <button>Add shield castle 1</button>
     <button>Add shield castle 2</button>
     <center id="main">
-      <h1>CASTLE 1 <span id="hp">(4)</span></h1>
+      <h1>CASTLE 1 <span id="hp1">(4)</span></h1>
+      <br>
+      <h3id="shield1"></h3>
       <br>
       <h3 id="cannon1"></h3>
       <button id="cannon1-btn">SHOOT</button>
@@ -18,7 +20,9 @@
       <button id="cannon2-btn">SHOOT</button>
       <h3 id="cannon2"></h3>
       <br>
-      <h1>CASTLE 2 <span id="hp">(4)</span></h1>
+      <h3 id="shield2"></h3>
+      <br>
+      <h1>CASTLE 2 <span id="hp2">(4)</span></h1>
     </center>
   </body>
 </html>
@@ -31,6 +35,9 @@
   }
 </style>
 <script>
+  hp1 = document.getElementById("hp1");
+  hp2 = document.getElementById("hp2");
+  
   function addCannon1(){
     document.getElementById("cannon1").innerHTML = "CANNON";
     document.getElementById("cannon1-btn").style.display = "block";
@@ -38,5 +45,11 @@
   function addCannon2(){
     document.getElementById("cannon2").innerHTML = "CANNON";
     document.getElementById("cannon2-btn").style.display = "block";
+  }
+  function addShield1(){
+    document.getElementById("shield1").innerHTML = "SHIELD";
+  }
+  function addShield2(){
+    document.getElementById("shield2").innerHTML = "SHIELD";
   }
 </script>
