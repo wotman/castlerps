@@ -51,8 +51,6 @@
   hp2 = document.getElementById("hp2").innerHTML;
   hp1 = parseInt(hp1);
   hp2 = parseInt(hp2);
-  console.log(hp1);
-  console.log(hp2);
   
   function addCannon1(){
     document.getElementById("cannon1").innerHTML = "CANNON";
@@ -73,7 +71,7 @@
       document.getElementById("shield2").innerHTML = "";
     }
     else {
-      
+      hp2 -- 1;
     }
   }
 </script>
