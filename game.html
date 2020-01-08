@@ -1,1 +1,361 @@
-
+<html>  
+  <head>
+    <title>Castle RPS</title>
+  </head>
+  <body>
+    <center>
+      <div id="gen-main">
+        <div id="gen-rps">
+          <button id="gen-btn2" onclick="offGen();">Turn off generating</button>
+          <br>
+          <br>
+          <button id="gen-btn" onclick="genrps();">Generate RPS</button>
+          <br>
+        </div>
+        <p id="gen-p1">-</p>
+        <p id="gen-p2">-</p>
+        <p id="gen-p3"></p>
+      </div>
+      <button id="gen-btn3" onclick="onGen();">Turn on generating</button>
+      <div id="team1">
+        <div id="btns1">
+          <button onclick="addCannon1();">Add cannon castle 1</button>
+          <br>
+          <br>
+          <button onclick="addShield1();">Add shield castle 1</button>
+        </div>
+      </div>
+      <div id="team2">
+        <div id="btns2">
+            <button onclick="addCannon2();">Add cannon castle 2</button>
+            <br>
+            <br>
+            <button onclick="addShield2();">Add shield castle 2</button>
+        </div>
+      </div>
+      <h1>CASTLE 1 <span id="hp1">4</span></h1>
+      <br>
+      <h3 id="cannon1"></h3>
+      <button id="cannon1-btn" onclick="shoot1();">SHOOT</button>
+      <br>
+      <button id="cannon1-btn2" onclick="shootCannon1();">SHOOT CANNON</button>
+      <br>
+      <h3 id="shield1">SHIELD <span id="hps1">0</span></h3>
+      <br>
+      <hr>
+      <br>
+      <h3 id="shield2">SHIELD <span id="hps2">0</span></h3>
+      <br>
+      <button id="cannon2-btn2" onclick="shootCannon2();">SHOOT CANNON</button>
+      <br>
+      <button id="cannon2-btn" onclick="shoot2();">SHOOT</button>
+      <h3 id="cannon2"></h3>
+      <br>
+      <h1>CASTLE 2 <span id="hp2">4</span></h1>
+    </center>
+  </body>
+</html>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+  
+  * {
+    font-family: 'Oswald', sans-serif;
+  }
+  body {
+    background-color: #5f7d67;
+  }
+  h1 {
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+  }
+  h3 {
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+  }
+  span {
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+  }
+  p {
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+  }
+  button {
+    background-color: #55346e;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.3s ease;
+  }
+  button:hover {
+    background-color: #391f4d;
+    cursor: pointer;
+  }
+  #cannon1-btn {
+    display: none;
+  }
+  #cannon2-btn {
+    display: none;
+  }
+  #cannon1-btn2 {
+    display: none;
+  }
+  #cannon2-btn2 {
+    display: none;
+  }
+  #hp1::before {
+    content: "(";
+  }
+  #hp1::after {
+    content: ")";
+  }
+  #hp2::before {
+    content: "(";
+  }
+  #hp2::after {
+    content: ")";
+  }
+  #hps1::before {
+    content: "(";
+  }
+  #hps1::after {
+    content: ")";
+  }
+  hps2::before {
+    content: "(";
+  }
+  hps2::after {
+    content: ")";
+  }
+  #team1 {
+    float: left;
+    position: fixed;
+    transform: translateY(50%);
+    overflow: auto;
+  }
+  #team2 {
+    float: right;
+    position: fixed;
+    transform: translate(587%,50%);
+    overflow: auto;
+  }
+  #btns1 {
+    display: none;
+  }
+  #btns2 {
+    display: none;
+  }
+  #gen-p1::before {
+    content: "Castle 1: ";
+  }
+  #gen-p2::before {
+    content: "Castle 2: ";
+  }
+  #gen-btn3 {
+    display: none;
+  }
+</style>
+<script>
+  hp1 = document.getElementById("hp1").innerHTML;
+  hp2 = document.getElementById("hp2").innerHTML;
+  hp1 = parseInt(hp1);
+  hp2 = parseInt(hp2);
+  
+  hps1 = document.getElementById("hps1").innerHTML;
+  hps2 = document.getElementById("hps2").innerHTML;
+  hps1 = parseInt(hps1);
+  hps2 = parseInt(hps2);
+  
+  genTrue = true;
+  
+  function clearRps(){
+    if (genTrue){
+      document.getElementById("btns1").style.display = "none";
+      document.getElementById("btns2").style.display = "none";
+    }
+  }
+  
+  function resetrps(){
+    document.getElementById("gen-rps").style.display = "block";
+    document.getElementById("gen-p1").innerHTML = "-";
+    document.getElementById("gen-p2").innerHTML = "-";
+    document.getElementById("gen-p3").innerHTML = "";
+  }
+  
+  function addCannon1(){
+    if (document.getElementById("cannon1").innerHTML == "CANNON"){
+      alert("You already have a cannon!")
+    }
+    else {
+      clearRps();
+      resetrps();
+    }
+    
+    document.getElementById("cannon1").innerHTML = "CANNON";
+    document.getElementById("cannon1-btn").style.display = "block";
+    
+    if (document.getElementById("cannon2").innerHTML == "CANNON" && document.getElementById("shield2").innerHTML == "") {
+      document.getElementById("cannon1-btn2").style.display = "block";
+      document.getElementById("cannon2-btn2").style.display = "block";
+    }
+  }
+  function addCannon2(){
+    if (document.getElementById("cannon2").innerHTML == "CANNON"){
+      alert("You already have a cannon!")
+    }
+    else {
+      clearRps();
+      resetrps();
+    }
+    
+    document.getElementById("cannon2").innerHTML = "CANNON";
+    document.getElementById("cannon2-btn").style.display = "block";
+    
+    if (document.getElementById("cannon1").innerHTML == "CANNON" && document.getElementById("shield1").innerHTML == "") {
+      document.getElementById("cannon2-btn2").style.display = "block";
+      document.getElementById("cannon1-btn2").style.display = "block";
+    }
+  }
+  function addShield1(){
+    document.getElementById("cannon2-btn2").style.display = "none";
+    hps1 = hps1 + 1;
+    document.getElementById("hps1").innerHTML = hps1
+    clearRps();
+    resetrps();
+  }
+  function addShield2(){
+    document.getElementById("cannon1-btn2").style.display = "none";
+    hps2 = hps2 + 1;
+    document.getElementById("hps2").innerHTML = hps2;
+    clearRps();
+    resetrps();
+  }
+  function shoot1(){
+    if (hps2 >= 1){
+      hps2 = hps2 - 1;
+      document.getElementById("hps2").innerHTML = hps2;
+      if (document.getElementById("cannon2").innerHTML == "CANNON"){
+        document.getElementById("cannon1-btn2").style.display = "block";
+      }
+    }
+    else {
+      hps2 = 0;
+      document.getElementById("hps2").innerHTML = hps2;
+      hp2 = hp2 - 1;
+      console.log(hp2);
+      document.getElementById("hp2").innerHTML = String(hp2);
+    }
+    if (hp2 == 0){
+      alert("Castle 1 won!");
+      location.reload();
+    }
+    clearRps();
+    resetrps();
+  }
+  function shoot2(){
+    if (hps1 >= 1){
+      hps1 = hps1 - 1;
+      document.getElementById("hps1").innerHTML = hps1;
+      if (document.getElementById("cannon1").innerHTML == "CANNON"){
+        document.getElementById("cannon2-btn2").style.display = "block";
+      }
+    }
+    else {
+      hps1 = 0
+      document.getElementById("hps1").innerHTML = hps1;
+      hp1 = hp1 - 1;
+      console.log(hp1);
+      document.getElementById("hp1").innerHTML = String(hp1);
+    }
+    if (hp1 == 0){
+      alert("Castle 2 won!");
+      location.reload();
+    }
+    clearRps();
+    resetrps();
+  }
+  function shootCannon1(){
+    document.getElementById("cannon2").innerHTML = "";
+    document.getElementById("cannon2-btn").style.display = "none";
+    document.getElementById("cannon2-btn2").style.display = "none";
+    document.getElementById("cannon1-btn2").style.display = "none";
+    clearRps();
+    resetrps();
+  }
+  function shootCannon2(){
+    document.getElementById("cannon1").innerHTML = "";
+    document.getElementById("cannon1-btn").style.display = "none";
+    document.getElementById("cannon1-btn2").style.display = "none";
+    document.getElementById("cannon2-btn2").style.display = "none";
+    clearRps();
+    resetrps();
+  }
+  function genrps(){
+    var textArray = [
+      "rock",
+      "paper",
+      "scissors"
+    ];
+    var randomNumber = Math.floor(Math.random() * textArray.length);
+    if (randomNumber == 0){
+      randomString = "rock";
+    }
+    if (randomNumber == 1){
+      randomString = "paper";
+    }
+    if (randomNumber == 2){
+      randomString = "scissors";
+    }
+    document.getElementById("gen-p1").innerHTML = randomString;
+    
+    
+    var textArray2 = [
+      "rock",
+      "paper",
+      "scissors"
+    ];
+    var randomNumber2 = Math.floor(Math.random() * textArray.length);
+    if (randomNumber2 == 0){
+      randomString2 = "rock";
+    }
+    if (randomNumber2 == 1){
+      randomString2 = "paper";
+    }
+    if (randomNumber2 == 2){
+      randomString2 = "scissors";
+    }
+    document.getElementById("gen-p2").innerHTML = randomString2;
+    
+    if (randomNumber == randomNumber2){
+      document.getElementById("gen-p3").innerHTML = "TIED";
+    }
+    if (randomNumber == 0 && randomNumber2 == 2 || randomNumber == 1 && randomNumber2 == 0 || randomNumber == 2 && randomNumber2 == 1){
+      document.getElementById("gen-p3").innerHTML = "CASTLE 1 WINS";
+      document.getElementById("btns1").style.display = "block";
+    }
+    if (randomNumber == 0 && randomNumber2 == 1 || randomNumber == 1 && randomNumber2 == 2 || randomNumber == 2 && randomNumber2 == 0){
+      document.getElementById("gen-p3").innerHTML = "CASTLE 2 WINS";
+      document.getElementById("btns2").style.display = "block";
+    }
+  }
+  function offGen(){
+    document.getElementById("gen-main").style.display = "none";
+    document.getElementById("gen-btn3").style.display = "block";
+    document.getElementById("btns1").style.display = "block";
+    document.getElementById("btns2").style.display = "block";
+    document.getElementById("gen-btn").style.display = "block";
+    genTrue = false;
+  }
+  function onGen(){
+    document.getElementById("gen-main").style.display = "block";
+    document.getElementById("gen-btn3").style.display = "none";
+    document.getElementById("btns1").style.display = "none";
+    document.getElementById("btns2").style.display = "none";
+    document.getElementById("gen-btn").style.display = "block";
+    genTrue = true;
+  }
+</script>
