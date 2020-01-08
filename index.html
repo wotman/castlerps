@@ -4,11 +4,13 @@
   </head>
   <body>
     <center>
-      <button id="gen-btn" onclick="genrps();">Generate RPS</button>
-      <br>
-      <p id="gen-p1">-</p>
-      <p id="gen-p2">-</p>
-      <p id="gen-p3"></p>
+      <div id="rps-gen">
+        <button id="gen-btn" onclick="genrps();">Generate RPS</button>
+        <br>
+        <p id="gen-p1">-</p>
+        <p id="gen-p2">-</p>
+        <p id="gen-p3"></p>
+      </div>
       <div id="team1">
         <div id="btns1">
           <button onclick="addCannon1();">Add cannon castle 1</button>
@@ -154,6 +156,7 @@
       document.getElementById("cannon2-btn2").style.display = "block";
     }
     document.getElementById("btns1").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function addCannon2(){
     document.getElementById("cannon2").innerHTML = "CANNON";
@@ -164,16 +167,19 @@
       document.getElementById("cannon1-btn2").style.display = "block";
     }
     document.getElementById("btns2").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function addShield1(){
     document.getElementById("shield1").innerHTML = "SHIELD";
     document.getElementById("cannon2-btn2").style.display = "none";
     document.getElementById("btns1").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function addShield2(){
     document.getElementById("shield2").innerHTML = "SHIELD";
     document.getElementById("cannon1-btn2").style.display = "none";
     document.getElementById("btns2").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function shoot1(){
     if (document.getElementById("shield2").innerHTML == "SHIELD"){
@@ -192,6 +198,7 @@
       location.reload();
     }
     document.getElementById("btns1").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function shoot2(){
     if (document.getElementById("shield1").innerHTML == "SHIELD"){
@@ -210,6 +217,7 @@
       location.reload();
     }
     document.getElementById("btns2").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function shootCannon1(){
     document.getElementById("cannon2").innerHTML = "";
@@ -217,6 +225,7 @@
     document.getElementById("cannon2-btn2").style.display = "none";
     document.getElementById("cannon1-btn2").style.display = "none";
     document.getElementById("btns1").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function shootCannon2(){
     document.getElementById("cannon1").innerHTML = "";
@@ -224,6 +233,7 @@
     document.getElementById("cannon1-btn2").style.display = "none";
     document.getElementById("cannon2-btn2").style.display = "none";
     document.getElementById("btns2").style.display = "none";
+    document.getElementById("gen-rps").style.display = "block";
   }
   function genrps(){
     var textArray = [
@@ -267,10 +277,12 @@
     if (randomNumber == 0 && randomNumber2 == 2 || randomNumber == 1 && randomNumber2 == 0 || randomNumber == 2 && randomNumber2 == 1){
       document.getElementById("gen-p3").innerHTML = "CASTLE 1 WINS";
       document.getElementById("btns1").style.display = "block";
+      document.getElementById("gen-rps").style.display = "none";
     }
     if (randomNumber == 0 && randomNumber2 == 1 || randomNumber == 1 && randomNumber2 == 2 || randomNumber == 2 && randomNumber2 == 0){
       document.getElementById("gen-p3").innerHTML = "CASTLE 2 WINS";
       document.getElementById("btns2").style.display = "block";
+      document.getElementById("gen-rps").style.display = "none";
     }
   }
 </script>
