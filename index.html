@@ -4,13 +4,17 @@
   </head>
   <body>
     <center>
-      <div id="gen-rps">
-        <button id="gen-btn" onclick="genrps();">Generate RPS</button>
-        <br>
+      <div id="gen-main">
+        <div id="gen-rps">
+          <button id="gen-btn2" onclick="offGen();">Turn off generating</button>
+          <button id="gen-btn" onclick="genrps();">Generate RPS</button>
+          <br>
+        </div>
+        <p id="gen-p1">-</p>
+        <p id="gen-p2">-</p>
+        <p id="gen-p3"></p>
       </div>
-      <p id="gen-p1">-</p>
-      <p id="gen-p2">-</p>
-      <p id="gen-p3"></p>
+      <button id="gen-btn3" onclick="onGen();">Turn on generating</button>
       <div id="team1">
         <div id="btns1">
           <button onclick="addCannon1();">Add cannon castle 1</button>
@@ -139,6 +143,9 @@
   }
   #gen-p2::before {
     content: "Castle 2: ";
+  }
+  #gen-btn3 {
+    display: none;
   }
 </style>
 <script>
@@ -291,5 +298,13 @@
       document.getElementById("btns2").style.display = "block";
       document.getElementById("gen-rps").style.display = "none";
     }
+  }
+  function offGen(){
+    document.getElementById("gen-main").style.display = "none";
+    document.getElementById("gen-btn3").style.display = "block";
+  }
+  function onGen(){
+    document.getElementById("gen-main").style.display = "block";
+    document.getElementById("gen-btn3").style.display = "none";
   }
 </script>
