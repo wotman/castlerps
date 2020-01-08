@@ -240,7 +240,7 @@
     resetrps();
   }
   function shoot1(){
-    if (document.getElementById("hps2").innerHTML != 0){
+    if (hps2 >= 1){
       hps2 = hps2 - 1;
       document.getElementById("hps2").innerHTML = hps2;
       if (document.getElementById("cannon2").innerHTML == "CANNON"){
