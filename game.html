@@ -173,10 +173,10 @@
   genTrue = true;
   
   if (localStorage.getItem("gen")){
-    if (JSON.parse(localStorage.getItem("gen")) == "on"){
+    if (localStorage.getItem("gen") == "on"){
       onGen();
     }
-    if (JSON.parse(localStorage.getItem("gen")) == "off"){
+    if (localStorage.getItem("gen") == "off"){
       offGen();
     }
   }
