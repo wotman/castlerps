@@ -220,6 +220,10 @@
     if (genTrue){
       document.getElementById("btns1").style.display = "none";
       document.getElementById("btns2").style.display = "none";
+      document.getElementById("cannon1-btn").style.display = "none";
+      document.getElementById("cannon1-btn2").style.display = "none";
+      document.getElementById("cannon2-btn").style.display = "none";
+      document.getElementById("cannon2-btn2").style.display = "none";
     }
   }
   function resetrps(){
@@ -378,10 +382,22 @@
     if (randomNumber == 0 && randomNumber2 == 2 || randomNumber == 1 && randomNumber2 == 0 || randomNumber == 2 && randomNumber2 == 1){
       document.getElementById("gen-p3").innerHTML = "CASTLE 1 WINS";
       document.getElementById("btns1").style.display = "block";
+      if (document.getElementById("cannon1").innerHTML == "CANNON"){
+        document.getElementById("cannon1-btn").style.display = "block";
+        if (doucment.getElementById("cannon2").innerHTML == "CANNON"){
+          document.getElementByid("cannon1-btn2").style.display =  "block";
+        }
+      }
     }
     if (randomNumber == 0 && randomNumber2 == 1 || randomNumber == 1 && randomNumber2 == 2 || randomNumber == 2 && randomNumber2 == 0){
       document.getElementById("gen-p3").innerHTML = "CASTLE 2 WINS";
       document.getElementById("btns2").style.display = "block";
+      if (document.getElementById("cannon2").innerHTML == "CANNON"){
+        document.getElementById("cannon2-btn").style.display = "block";
+        if (doucment.getElementById("cannon1").innerHTML == "CANNON"){
+          document.getElementByid("cannon2-btn2").style.display =  "block";
+        }
+      }
     }
   }
   function offGen(){
@@ -390,6 +406,9 @@
     document.getElementById("btns1").style.display = "block";
     document.getElementById("btns2").style.display = "block";
     document.getElementById("gen-btn").style.display = "block";
+    document.getElementById("cannon1-btn").style.display = "block";
+    document.getElementById("cannon2-btn").style.display = "block";
+    
     genTrue = false;
     localStorage.setItem("gen","off");
   }
@@ -399,6 +418,10 @@
     document.getElementById("btns1").style.display = "none";
     document.getElementById("btns2").style.display = "none";
     document.getElementById("gen-btn").style.display = "block";
+    document.getElementById("cannon1-btn").style.display = "none";
+    document.getElementById("cannon1-btn2").style.display = "none";
+    document.getElementById("cannon2-btn").style.display = "none";
+    document.getElementById("cannon2-btn2").style.display = "none";
     genTrue = true;
     localStorage.setItem("gen","on");
   }
