@@ -153,6 +153,14 @@
   hp2 = document.getElementById("hp2").innerHTML;
   hp1 = parseInt(hp1);
   hp2 = parseInt(hp2);
+  genTrue = true;
+  
+  function clearRps(){
+    if (genTrue){
+      document.getElementById("btns1").style.display = "none";
+      document.getElementById("btns2").style.display = "none";
+    }
+  }
   
   function resetrps(){
     document.getElementById("gen-rps").style.display = "block";
@@ -169,7 +177,7 @@
       document.getElementById("cannon1-btn2").style.display = "block";
       document.getElementById("cannon2-btn2").style.display = "block";
     }
-    document.getElementById("btns1").style.display = "none";
+    clearRps();
     resetrps();
   }
   function addCannon2(){
@@ -180,20 +188,20 @@
       document.getElementById("cannon2-btn2").style.display = "block";
       document.getElementById("cannon1-btn2").style.display = "block";
     }
-    document.getElementById("btns2").style.display = "none";
+    clearRps();
     resetrps();
   }
   function addShield1(){
     document.getElementById("shield1").innerHTML = "SHIELD";
     document.getElementById("cannon2-btn2").style.display = "none";
-    document.getElementById("btns1").style.display = "none";
+    clearRps();
     resetrps();
   }
   function addShield2(){
     document.getElementById("shield2").innerHTML = "SHIELD";
     document.getElementById("cannon1-btn2").style.display = "none";
-    document.getElementById("btns2").style.display = "none";
-    document.getElementById("gen-rps").style.display = "block";
+    clearRps();
+    resetrps();
   }
   function shoot1(){
     if (document.getElementById("shield2").innerHTML == "SHIELD"){
@@ -211,7 +219,7 @@
       alert("Castle 1 won!");
       location.reload();
     }
-    document.getElementById("btns1").style.display = "none";
+    clearRps();
     resetrps();
   }
   function shoot2(){
@@ -230,7 +238,7 @@
       alert("Castle 2 won!");
       location.reload();
     }
-    document.getElementById("btns2").style.display = "none";
+    clearRps();
     resetrps();
   }
   function shootCannon1(){
@@ -238,7 +246,7 @@
     document.getElementById("cannon2-btn").style.display = "none";
     document.getElementById("cannon2-btn2").style.display = "none";
     document.getElementById("cannon1-btn2").style.display = "none";
-    document.getElementById("btns1").style.display = "none";
+    clearRps();
     resetrps();
   }
   function shootCannon2(){
@@ -246,7 +254,7 @@
     document.getElementById("cannon1-btn").style.display = "none";
     document.getElementById("cannon1-btn2").style.display = "none";
     document.getElementById("cannon2-btn2").style.display = "none";
-    document.getElementById("btns2").style.display = "none";
+    clearRps();
     resetrps();
   }
   function genrps(){
@@ -302,9 +310,15 @@
   function offGen(){
     document.getElementById("gen-main").style.display = "none";
     document.getElementById("gen-btn3").style.display = "block";
+    document.getElementById("btns1").style.display = "block";
+    document.getElementById("btns2").style.display = "block";
+    genTrue = false;
   }
   function onGen(){
     document.getElementById("gen-main").style.display = "block";
     document.getElementById("gen-btn3").style.display = "none";
+    document.getElementById("btns1").style.display = "block";
+    document.getElementByid("btns2").style.display = "block";
+    genTrue = true;
   }
 </script>
