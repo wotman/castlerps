@@ -176,14 +176,6 @@
   }
   
   function addCannon1(){
-    document.getElementById("cannon1").innerHTML = "CANNON";
-    document.getElementById("cannon1-btn").style.display = "block";
-    
-    if (document.getElementById("cannon2").innerHTML == "CANNON" && document.getElementById("shield2").innerHTML == "") {
-      document.getElementById("cannon1-btn2").style.display = "block";
-      document.getElementById("cannon2-btn2").style.display = "block";
-    }
-    
     if (document.getElementById("cannon1").innerHTML == "CANNON"){
       alert("You already have a cannon!")
     }
@@ -191,21 +183,30 @@
       clearRps();
       resetrps();
     }
+    
+    document.getElementById("cannon1").innerHTML = "CANNON";
+    document.getElementById("cannon1-btn").style.display = "block";
+    
+    if (document.getElementById("cannon2").innerHTML == "CANNON" && document.getElementById("shield2").innerHTML == "") {
+      document.getElementById("cannon1-btn2").style.display = "block";
+      document.getElementById("cannon2-btn2").style.display = "block";
+    }
   }
   function addCannon2(){
-    document.getElementById("cannon2").innerHTML = "CANNON";
-    document.getElementById("cannon2-btn").style.display = "block";
-    
-    if (document.getElementById("cannon1").innerHTML == "CANNON" && document.getElementById("shield1").innerHTML == "") {
-      document.getElementById("cannon2-btn2").style.display = "block";
-      document.getElementById("cannon1-btn2").style.display = "block";
-    }
     if (document.getElementById("cannon2").innerHTML == "CANNON"){
       alert("You already have a cannon!")
     }
     else {
       clearRps();
       resetrps();
+    }
+    
+    document.getElementById("cannon2").innerHTML = "CANNON";
+    document.getElementById("cannon2-btn").style.display = "block";
+    
+    if (document.getElementById("cannon1").innerHTML == "CANNON" && document.getElementById("shield1").innerHTML == "") {
+      document.getElementById("cannon2-btn2").style.display = "block";
+      document.getElementById("cannon1-btn2").style.display = "block";
     }
   }
   function addShield1(){
