@@ -414,8 +414,18 @@
     document.getElementById("btns1").style.display = "block";
     document.getElementById("btns2").style.display = "block";
     document.getElementById("gen-btn").style.display = "block";
-    document.getElementById("cannon1-btn").style.display = "block";
-    document.getElementById("cannon2-btn").style.display = "block";
+    if (document.getElementById("cannon1").innerHTML  == "CANNON"){
+     document.getElementById("cannon1-btn").style.display = "block";
+     if (document.getElementById("cannon2").innerHTML == "CANNON"){
+      document.getElementById("cannon1-btn2").style.display = "block"
+     }
+    }
+    if (document.getElementById("cannon2").innerHTML  == "CANNON"){
+     document.getElementById("cannon2-btn").style.display = "block";
+     if (document.getElementById("cannon1").innerHTML == "CANNON"){
+      document.getElementById("cannon2-btn2").style.display = "block"
+     }
+    }
     
     genTrue = false;
     localStorage.setItem("gen","off");
