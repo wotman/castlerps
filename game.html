@@ -33,6 +33,15 @@
             <button onclick="addShield2();">Add shield castle 2</button>
         </div>
       </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <h1 id="m-title"></h1>
+          <button id="m-btn1" onclick="modalRestart();">RESTART</button>
+          <br>
+          <br>
+          <a href="https://wotman.github.io/castlerps"><button id="m-btn2">MAIN MENU</button></a>
+        </div>
+      </div>
       <h1>CASTLE 1 <span id="hp1">4</span></h1>
       <br>
       <h3 id="cannon1"></h3>
@@ -158,6 +167,29 @@
   #gen-btn3 {
     display: none;
   }
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
 </style>
 <script>
   hp1 = document.getElementById("hp1").innerHTML;
@@ -181,20 +213,21 @@
     }
   }
   
+  function openModal(){
+    document.getElementById("myModal").style.display = "block";
+  }
   function clearRps(){
     if (genTrue){
       document.getElementById("btns1").style.display = "none";
       document.getElementById("btns2").style.display = "none";
     }
   }
-  
   function resetrps(){
     document.getElementById("gen-rps").style.display = "block";
     document.getElementById("gen-p1").innerHTML = "-";
     document.getElementById("gen-p2").innerHTML = "-";
     document.getElementById("gen-p3").innerHTML = "";
   }
-  
   function addCannon1(){
     if (document.getElementById("cannon1").innerHTML == "CANNON"){
       alert("You already have a cannon!")
@@ -259,8 +292,7 @@
       document.getElementById("hp2").innerHTML = String(hp2);
     }
     if (hp2 == 0){
-      alert("Castle 1 won!");
-      location.reload();
+      openModal();
     }
     clearRps();
     resetrps();
@@ -281,8 +313,7 @@
       document.getElementById("hp1").innerHTML = String(hp1);
     }
     if (hp1 == 0){
-      alert("Castle 2 won!");
-      location.reload();
+      openModal();
     }
     clearRps();
     resetrps();
@@ -368,5 +399,8 @@
     document.getElementById("gen-btn").style.display = "block";
     genTrue = true;
     localStorage.setItem("gen","on");
+  }
+  function modalRestart(){
+    location.reload();
   }
 </script>
