@@ -172,6 +172,15 @@
   
   genTrue = true;
   
+  if (localStorage.getItem("gen")){
+    if (JSON.parse(localStorage.getItem("gen")) == "on"){
+      onGen();
+    }
+    if (JSON.parse(localStorage.getItem("gen")) == "off"){
+      offGen();
+    }
+  }
+  
   function clearRps(){
     if (genTrue){
       document.getElementById("btns1").style.display = "none";
@@ -349,6 +358,7 @@
     document.getElementById("btns2").style.display = "block";
     document.getElementById("gen-btn").style.display = "block";
     genTrue = false;
+    localStorage.setItem("gen","off");
   }
   function onGen(){
     document.getElementById("gen-main").style.display = "block";
@@ -357,5 +367,6 @@
     document.getElementById("btns2").style.display = "none";
     document.getElementById("gen-btn").style.display = "block";
     genTrue = true;
+    localStorage.setItem("gen","on");
   }
 </script>
