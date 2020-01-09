@@ -319,6 +319,9 @@
       if (document.getElementById("cannon2").innerHTML == "CANNON"){
         document.getElementById("cannon1-btn2").style.display = "block";
       }
+      if (hps2 == 1){
+        document.getElementById("shield2").style.display = "none";
+      }
     }
     else {
       hps2 = 0;
@@ -326,7 +329,6 @@
       hp2 = hp2 - 1;
       console.log(hp2);
       document.getElementById("hp2").innerHTML = String(hp2);
-      document.getElementById("shield2").style.display = "none";
     }
     if (hp2 == 0){
       openModal();
@@ -342,6 +344,9 @@
       if (document.getElementById("cannon1").innerHTML == "CANNON"){
         document.getElementById("cannon2-btn2").style.display = "block";
       }
+      if (hps1 == 1){
+        document.getElementById("shield1").style.display = "none";
+      }
     }
     else {
       hps1 = 0
@@ -349,7 +354,6 @@
       hp1 = hp1 - 1;
       console.log(hp1);
       document.getElementById("hp1").innerHTML = String(hp1);
-      document.getElementById("shield1").style.display = "none";
     }
     if (hp1 == 0){
       openModal();
