@@ -167,6 +167,12 @@
   #gen-btn3 {
     display: none;
   }
+  #shield1 {
+    display: none;
+  }
+  #shield2 {
+    display: none;
+  }
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
@@ -296,6 +302,7 @@
     document.getElementById("cannon2-btn2").style.display = "none";
     hps1 = hps1 + 1;
     document.getElementById("hps1").innerHTML = hps1
+    document.getElementById("shield1").style.display = "block";
     clearRps();
     resetrps();
   }
@@ -303,6 +310,7 @@
     document.getElementById("cannon1-btn2").style.display = "none";
     hps2 = hps2 + 1;
     document.getElementById("hps2").innerHTML = hps2;
+    document.getElementById("shield2").style.display = "block";
     clearRps();
     resetrps();
   }
@@ -320,6 +328,7 @@
       hp2 = hp2 - 1;
       console.log(hp2);
       document.getElementById("hp2").innerHTML = String(hp2);
+      document.getElementById("shield2").style.display = "none";
     }
     if (hp2 == 0){
       openModal();
@@ -342,6 +351,7 @@
       hp1 = hp1 - 1;
       console.log(hp1);
       document.getElementById("hp1").innerHTML = String(hp1);
+      document.getElementById("shield1").style.display = "none";
     }
     if (hp1 == 0){
       openModal();
