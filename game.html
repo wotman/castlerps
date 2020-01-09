@@ -246,15 +246,27 @@
     else {
       clearRps();
       resetrps();
+      document.getElementById("cannon1-btn").style.display = "none";
+      document.getElementById("cannon1-btn2").style.display = "none";
+      document.getElementById("cannon2-btn").style.display = "none";
+      document.getElementById("cannon2-btn2").style.display = "none";
     }
     
     document.getElementById("cannon1").innerHTML = "CANNON";
     if (!genTrue){
+      document.getElementById("cannon1-btn").style.display = "block";
       if (document.getElementById("cannon2").innerHTML == "CANNON"){
         if (hps2 == 0){
           document.getElementById("cannon1-btn2").style.display = "block";
+          document.getElementById("cannon2-btn2").style.display = "block";
+        }
+        if (hps2 == 0){
+          if (document.getElementById("cannon1").innerHTML == "CANNON"){
+            document.getElementById("cannon1-btn2").style.display = "block";
+          }
         }
         document.getElementById("cannon1-btn").style.display = "block";
+        document.getElementById("cannon2-btn").style.display = "block";
       }
     }
   }
@@ -265,13 +277,24 @@
     else {
       clearRps();
       resetrps();
+      document.getElementById("cannon1-btn").style.display = "none";
+      document.getElementById("cannon1-btn2").style.display = "none";
+      document.getElementById("cannon2-btn").style.display = "none";
+      document.getElementById("cannon2-btn2").style.display = "none";
     }
     
     document.getElementById("cannon2").innerHTML = "CANNON";
     if (!genTrue){
       if (hps1 == 0){
+        document.getElementById("cannon1-btn2").style.display = "block";
         document.getElementById("cannon2-btn2").style.display = "block";
       }
+      if (hps2 == 0){
+        if (document.getElementById("cannon1").innerHTML == "CANNON"){
+          document.getElementById("cannon1-btn2").style.display = "block";
+        }
+      }
+      document.getElementById("cannon1-btn").style.display = "block";
       document.getElementById("cannon2-btn").style.display = "block";
     }
   }
